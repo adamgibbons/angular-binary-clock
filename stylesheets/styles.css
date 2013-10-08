@@ -1,0 +1,23 @@
+body {
+    background: #333;
+    color:gray;
+    font-size: 18px;
+    text-align:center;
+}
+.hours{
+    font-size:6em;
+    margin-bottom: 0;
+}
+.minutes{
+    font-size:3em;
+}
+.seconds{
+    font-size:2em;
+}
+.binary-markers li {
+    display:inline;
+}
+.binary-markers li.active {
+    color:white;
+}
+
