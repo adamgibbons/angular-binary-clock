@@ -8,27 +8,32 @@
     <div ng-controller="ClockCtrl">
         <p>{{hours}}</p>
         <ul ng-controller="HoursCtrl" class="binary-markers hours">
-            <li ng-class="{active: isLitHours(16)}">&#149;</li>
-            <li ng-class="{active: isLitHours(8)}">&#149;</li>
-            <li ng-class="{active: isLitHours(4)}">&#149;</li>
-            <li ng-class="{active: isLitHours(2)}">&#149;</li>
+            <li ng-class="{active: getHours() % 32 >= 16 && getHours() % 32 <= 31}">&#149;</li>
+            <li ng-class="{active: getHours() % 16 >= 8 && getHours() % 16 <= 15}">&#149;</li>
+            <li ng-class="{active: getHours() % 8 >= 4 && getHours() % 8 <= 7}">&#149;</li>
+            <li ng-class="{active: getHours() % 4 == 2 || getHours() % 4 == 3}">&#149;</li>
+            <li ng-class="{active: getHours() % 2 != 0}">&#149;</li>
         </ul>
         <ul ng-controller="MinutesCtrl" class="binary-markers minutes">
-            <li ng-class="{active: isLitMinutes(64)}">&#149;</li>
-            <li ng-class="{active: isLitMinutes(32)}">&#149;</li>
-            <li ng-class="{active: isLitMinutes(16)}">&#149;</li>
-            <li ng-class="{active: isLitMinutes(8)}">&#149;</li>
-            <li ng-class="{active: isLitMinutes(4)}">&#149;</li>
-            <li ng-class="{active: isLitMinutes(2)}">&#149;</li>
+            <li ng-class="{active: isActive(64)}">&#149;</li>
+            <li ng-class="{active: isActive(32)}">&#149;</li>
+            <li ng-class="{active: isActive(16)}">&#149;</li>
+            <li ng-class="{active: isActive(8)}">&#149;</li>
+            <li ng-class="{active: isActive(4)}">&#149;</li>
+            <li ng-class="{active: isActive(2)}">&#149;</li>
         </ul>
-        <ul ng-controller="SecondsCtrl" class="binary-markers seconds">
-            <li ng-class="{active: isLitSeconds(64)}">&#149;</li>
-            <li ng-class="{active: isLitSeconds(32)}">&#149;</li>
-            <li ng-class="{active: isLitSeconds(16)}">&#149;</li>
-            <li ng-class="{active: isLitSeconds(8)}">&#149;</li>
-            <li ng-class="{active: isLitSeconds(4)}">&#149;</li>
-            <li ng-class="{active: isLitSeconds(2)}">&#149;</li>
-        </ul>
+
+        <div ng-controller="SecondsCtrl">
+            <ul class="binary-markers seconds">
+                <li ng-class="{active: isActive(64)}">&#149;</li>
+                <li ng-class="{active: isActive(32)}">&#149;</li>
+                <li ng-class="{active: isActive(16)}">&#149;</li>
+                <li ng-class="{active: isActive(8)}">&#149;</li>
+                <li ng-class="{active: isActive(4)}">&#149;</li>
+                <li ng-class="{active: isActive(2)}">&#149;</li>
+            </ul>
+        </div>
+
     </div>
     <script src="./scripts/binaryClockApp.js"></script>
   </body>

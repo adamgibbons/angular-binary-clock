@@ -1,23 +1,24 @@
-body {
+body{
     background: #333;
     color:gray;
-    font-size: 18px;
+    font-size: 28px;
     text-align:center;
 }
+.binary-markers{
+    font-size: 3em;
+    margin: 0;
+}
+.binary-markers li{
+    display:inline;
+}
+.binary-markers li.active{
+    color:white;
+}
 .hours{
-    font-size:6em;
+    font-size:3.7em;
     margin-bottom: 0;
 }
 .minutes{
-    font-size:3em;
+    position: relative;
+    top: -.06em;
 }
-.seconds{
-    font-size:2em;
-}
-.binary-markers li {
-    display:inline;
-}
-.binary-markers li.active {
-    color:white;
-}
-

@@ -33,8 +33,8 @@ function MinutesCtrl($scope) {
         $scope.$apply(function() {
             $scope.minutes = $scope.getMinutes();
         });
-    }, 1000);
-    $scope.isLitMinutes = function(position) {
+    }, 60000);
+    $scope.isActive = function(position) {
         if ($scope.getMinutes() % position >= (position / 2)) {
             return true;
         } else {
@@ -52,7 +52,7 @@ function SecondsCtrl($scope) {
             $scope.seconds = $scope.getSeconds();
         });
     }, 1000);
-    $scope.isLitSeconds = function(position) {
+    $scope.isActive = function(position) {
         if ($scope.getSeconds() % position >= (position / 2)) {
             return true;
         } else {
