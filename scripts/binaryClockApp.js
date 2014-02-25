@@ -26,13 +26,6 @@ function MinutesCtrl($scope) {
             $scope.minutes = $scope.getMinutes();
         });
     }, 1000);
-    $scope.isActive = function(position) {
-        if ($scope.getMinutes() % position >= (position / 2)) {
-            return true;
-        } else {
-            return false;
-        }
-    }
 }
 
 function SecondsCtrl($scope) {
