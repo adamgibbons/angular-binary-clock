@@ -4,6 +4,9 @@ function ClockCtrl($scope) {
     $scope.date = function() {
         return new Date();
     };
+    $scope.setColorScheme = function(colorScheme) {
+        $scope.colorScheme = colorScheme;
+    }
 }
 
 function HoursCtrl($scope) {
@@ -38,3 +41,4 @@ function SecondsCtrl($scope) {
         });
     }, 1000);
 }
+

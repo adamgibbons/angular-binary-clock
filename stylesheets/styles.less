@@ -1,0 +1,38 @@
+.green {
+    background-color: green;
+    color: white;
+    .active {color: yellow;}
+}
+
+.charcoal {
+    background-color: #333;
+    color: #444;
+    .active {color: #bbb;}
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    &> div {
+        height: 100%;
+    }
+    font-size: 28px;
+    text-align:center;
+    .binary-markers {
+        font-size: 3em;
+        margin: 0;
+        li {
+            display: inline;
+        }
+    }
+    .hours{
+        font-size:3.7em;
+        margin-bottom: 0;
+    }
+    .minutes{
+        position: relative;
+        top: -.06em;
+    }
+}
