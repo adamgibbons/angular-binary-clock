@@ -7,10 +7,6 @@
   </head>
   <body ng-app="binaryClockApp">
     <div ng-controller="ClockCtrl" class="structure" ng-class="colorScheme">
-        <p>
-            <button ng-click="setColorScheme('charcoal')">Charcoal</button>
-            <button ng-click="setColorScheme('green')">Green</button>
-        </p>
         <div ng-controller="HoursCtrl">
             <ul class="binary-markers hours">
                 <li class="marker" ng-class="{active: hours % 32 >= 16 && hours % 32 <= 31}">&#149;</li>
@@ -42,7 +38,15 @@
                 <li class="marker" ng-class="{active: seconds % 2 != 0}">&#149;</li>
             </ul>
         </div>
-
+        <div class="row button-row">
+            <button ng-click="setColorScheme('charcoal')">Charcoal</button>
+            <button ng-click="setColorScheme('jejeune')">Jejeune</button>
+            <button ng-click="setColorScheme('sunset')">Sunset</button>
+            <button ng-click="setColorScheme('blue')">Blue</button>
+            <button ng-click="setColorScheme('peppermint')">Peppermint</button>
+            <button ng-click="setColorScheme('phaedra')">Phaedra</button>
+            <button ng-click="setColorScheme('firenze')">Firenze</button>
+        </div>
     </div>
     <script src="./scripts/binaryClockApp.js"></script>
   </body>
