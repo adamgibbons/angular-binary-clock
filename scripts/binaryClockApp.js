@@ -2,6 +2,7 @@ var myApp = angular.module('binaryClockApp',[]);
 
 function ClockCtrl($scope) {
     $scope.colorScheme = 'charcoal';
+    $scope.size = 28;
 
     $scope.date = function() {
         return new Date();
@@ -9,6 +10,9 @@ function ClockCtrl($scope) {
     $scope.setColorScheme = function(colorScheme) {
         $scope.colorScheme = colorScheme;
     };
+    $scope.setSize = function(fontSize) {
+        $scope.size = fontSize;
+    }
 }
 
 function HoursCtrl($scope) {
