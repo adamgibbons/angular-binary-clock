@@ -1,0 +1,21 @@
+{
+  "name": "angular-binary-clock",
+  "version": "0.0.0",
+  "homepage": "https://github.com/adamgibbons/angular-binary-clock",
+  "authors": [
+    "adamgibbons <adam.d.gibbons@gmail.com>"
+  ],
+  "main": "index.html",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.2.26",
+    "less": "~1.7.5"
+  }
+}
