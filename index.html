@@ -1,57 +1,91 @@
-<html>
-  <head>
-    <title>Binary Clock</title>
-    <script src="./scripts/angular.min.js"></script>
-    <link type="text/css" href="./stylesheets/styles.less" rel="stylesheet/less" />
-    <script src="./scripts/less-1.6.3.js"></script>
-  </head>
-  <body ng-app="binaryClockApp">
-    <div ng-controller="ClockCtrl" class="structure" ng-class="colorScheme" style="font-size:{{size}}px">
-        <div ng-controller="HoursCtrl">
-            <ul class="binary-markers hours">
-                <li class="marker" ng-class="{active: hours % 32 >= 16 && hours % 32 <= 31}">&#149;</li>
-                <li class="marker" ng-class="{active: hours % 16 >= 8 && hours % 16 <= 15}">&#149;</li>
-                <li class="marker" ng-class="{active: hours % 8 >= 4 && hours % 8 <= 7}">&#149;</li>
-                <li class="marker" ng-class="{active: hours % 4 == 2 || hours % 4 == 3}">&#149;</li>
-                <li class="marker" ng-class="{active: hours % 2 != 0}">&#149;</li>
-            </ul>
-        </div>
-
-        <div ng-controller="MinutesCtrl">
-            <ul class="binary-markers minutes">
-                <li class="marker" ng-class="{active: minutes % 64 >= 32 && minutes % 64 <= 63}">&#149;</li>
-                <li class="marker" ng-class="{active: minutes % 32 >= 16 && minutes % 32 <= 31}">&#149;</li>
-                <li class="marker" ng-class="{active: minutes % 16 >= 8 && minutes % 16 <= 15}">&#149;</li>
-                <li class="marker" ng-class="{active: minutes % 8 >= 4 && minutes % 8 <= 7}">&#149;</li>
-                <li class="marker" ng-class="{active: minutes % 4 == 2 || minutes % 4 == 3}">&#149;</li>
-                <li class="marker" ng-class="{active: minutes % 2 != 0}">&#149;</li>
-            </ul>
-        </div>
-
-        <div ng-controller="SecondsCtrl">
-            <ul class="binary-markers seconds">
-                <li class="marker" ng-class="{active: seconds % 64 >= 32 && seconds % 64 <= 63}">&#149;</li>
-                <li class="marker" ng-class="{active: seconds % 32 >= 16 && seconds % 32 <= 31}">&#149;</li>
-                <li class="marker" ng-class="{active: seconds % 16 >= 8 && seconds % 16 <= 15}">&#149;</li>
-                <li class="marker" ng-class="{active: seconds % 8 >= 4 && seconds % 8 <= 7}">&#149;</li>
-                <li class="marker" ng-class="{active: seconds % 4 == 2 || seconds % 4 == 3}">&#149;</li>
-                <li class="marker" ng-class="{active: seconds % 2 != 0}">&#149;</li>
-            </ul>
-        </div>
-        <div class="row button-row">
-            <button ng-click="setColorScheme('charcoal')">Charcoal</button>
-            <button ng-click="setColorScheme('jejeune')">Jejeune</button>
-            <button ng-click="setColorScheme('sunset')">Sunset</button>
-            <button ng-click="setColorScheme('blue')">Blue</button>
-            <button ng-click="setColorScheme('peppermint')">Peppermint</button>
-            <button ng-click="setColorScheme('phaedra')">Phaedra</button>
-            <button ng-click="setColorScheme('firenze')">Firenze</button>
-            <br><br>
-            <button ng-click="setSize(28)" class="no-border">&#3302;</button>
-            <button ng-click="setSize(36)" class="no-border">&#3302;&#3302;</button>
-            <button ng-click="setSize(44)" class="no-border">&#3302;&#3302;&#3302;</button>
-        </div>
+<html ng-app="binaryClockApp">
+<head>
+  <title>Binary Clock</title>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.20/angular.min.js"></script>
+  <link type="text/css" href="./stylesheets/styles.less" rel="stylesheet/less" />
+  <script src="./scripts/less-1.6.3.js"></script>
+</head>
+<body ng-controller="ClockCtrl" ng-class="colorScheme">
+  <!-- <p>{{time}}</p> -->
+  <div class="row hours">
+    <div class="block hour">
+      <div class="circle" ng-class="{active: hours % 32 >= 16 && hours % 32 <= 31}"></div>
     </div>
-    <script src="./scripts/binaryClockApp.js"></script>
-  </body>
+    <div class="block hour">
+      <div class="circle" ng-class="{active: hours % 16 >= 8 && hours % 16 <= 15}"></div>
+    </div>
+    <div class="block hour">
+      <div class="circle" ng-class="{active: hours % 8 >= 4 && hours % 8 <= 7}"></div>
+    </div>
+    <div class="block hour">
+      <div class="circle" ng-class="{active: hours % 4 == 2 || hours % 4 == 3}"></div>
+    </div>
+    <div class="block hour">
+      <div class="circle" ng-class="{active: hours % 2 != 0}"></div>
+    </div>
+  </div>
+  <div class="row minutes">
+    <div class="block minute">
+      <div class="circle" ng-class="{active: minutes % 64 >= 32 && minutes % 64 <= 63}"></div>
+    </div>
+    <div class="block minute">
+      <div class="circle" ng-class="{active: minutes % 32 >= 16 && minutes % 32 <= 31}"></div>
+    </div>
+    <div class="block minute">
+      <div class="circle" ng-class="{active: minutes % 16 >= 8 && minutes % 16 <= 15}"></div>
+    </div>
+    <div class="block minute">
+      <div class="circle" ng-class="{active: minutes % 8 >= 4 && minutes % 8 <= 7}"></div>
+    </div>
+    <div class="block minute">
+      <div class="circle" ng-class="{active: minutes % 4 == 2 || minutes % 4 == 3}"></div>
+    </div>
+    <div class="block minute">
+      <div class="circle" ng-class="{active: minutes % 2 != 0}"></div>
+    </div>
+  </div>
+  <div class="row seconds">
+    <div class="block second">
+      <div class="circle" ng-class="{active: seconds % 64 >= 32 && seconds % 64 <= 63}"></div>
+    </div>
+    <div class="block second">
+      <div class="circle" ng-class="{active: seconds % 32 >= 16 && seconds % 32 <= 31}"></div>
+    </div>
+    <div class="block second">
+      <div class="circle" ng-class="{active: seconds % 16 >= 8 && seconds % 16 <= 15}"></div>
+    </div>
+    <div class="block second">
+      <div class="circle" ng-class="{active: seconds % 8 >= 4 && seconds % 8 <= 7}"></div>
+    </div>
+    <div class="block second">
+      <div class="circle" ng-class="{active: seconds % 4 == 2 || seconds % 4 == 3}"></div>
+    </div>
+    <div class="block second">
+      <div class="circle" ng-class="{active: seconds % 2 != 0}"></div>
+    </div>
+  </div>
+
+  <div class="menu-bar">
+    <div id="palette" ng-click="showColorMenu = !showColorMenu">
+      <img src="../images/palette.png">
+    </div>
+    <menu class="menu color-menu" ng-show="showColorMenu">
+      <button ng-click="setColorScheme('charcoal')"
+              ng-class="{active: colorScheme === 'charcoal'}">Charcoal</button>
+      <button ng-click="setColorScheme('jejeune')"
+              ng-class="{active: colorScheme === 'jejeune'}">Jejeune</button>
+      <button ng-click="setColorScheme('sunset')"
+              ng-class="{active: colorScheme === 'sunset'}">Sunset</button>
+      <button ng-click="setColorScheme('blue')"
+              ng-class="{active: colorScheme === 'blue'}">Blue</button>
+      <button ng-click="setColorScheme('peppermint')"
+              ng-class="{active: colorScheme === 'peppermint'}">Peppermint</button>
+      <button ng-click="setColorScheme('phaedra')"
+              ng-class="{active: colorScheme === 'phaedra'}">Phaedra</button>
+      <button ng-click="setColorScheme('firenze')" 
+              ng-class="{active: colorScheme === 'firenze'}">Firenze</button>
+    </menu>
+  </div>
+  <script src="./scripts/binaryClockApp.js"></script>
+</body>
 </html>

@@ -1,50 +1,17 @@
-var myApp = angular.module('binaryClockApp',[]);
+angular.module('binaryClockApp', [])
 
-function ClockCtrl($scope) {
-    $scope.colorScheme = 'charcoal';
-    $scope.size = 28;
+.controller('ClockCtrl', function($scope, $interval) {
+  $scope.showColorMenu = false;
+  $scope.colorScheme = 'firenze';
 
-    $scope.date = function() {
-        return new Date();
-    };
-    $scope.setColorScheme = function(colorScheme) {
-        $scope.colorScheme = colorScheme;
-    };
-    $scope.setSize = function(fontSize) {
-        $scope.size = fontSize;
-    }
-}
+  $scope.setColorScheme = function(scheme) {
+    $scope.colorScheme = scheme;
+  }
 
-function HoursCtrl($scope) {
-    $scope.getHours = function() {
-        return $scope.date().getHours();
-    };
-    setInterval(function(){
-        $scope.$apply(function() {
-            $scope.hours = $scope.getHours();
-        });
-    }, 1000);
-}
-
-function MinutesCtrl($scope) { 
-    $scope.getMinutes = function() {
-        return $scope.date().getMinutes();
-    };
-    setInterval(function(){
-        $scope.$apply(function() {
-            $scope.minutes = $scope.getMinutes();
-        });
-    }, 1000);
-}
-
-function SecondsCtrl($scope) {
-    $scope.getSeconds = function() {
-        return $scope.date().getSeconds();
-    };
-    setInterval(function(){
-        $scope.$apply(function() {
-            $scope.seconds = $scope.getSeconds();
-        });
-    }, 1000);
-}
-
+  $interval(function(){
+    var time = new Date();
+    $scope.hours = new Date(time).getHours();
+    $scope.minutes = new Date(time).getMinutes();
+    $scope.seconds = new Date(time).getSeconds();
+  }, 1000);
+})
